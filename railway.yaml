@@ -1,6 +1,7 @@
-services:
-  - name: web
-    type: web
-    env:
-      PYTHON_VERSION: "3.10.12"
-      RAILWAY_START_CMD: uvicorn main:app --host 0.0.0.0 --port $RAILWAY_PORT
+runtime: python
+env: flex
+entrypoint: gunicorn -b :$PORT main:app
+
+runtime_config:
+    operating_system: "ubuntu18"
+    runtime_version: "3.8"
