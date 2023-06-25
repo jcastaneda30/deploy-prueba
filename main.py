@@ -6,7 +6,8 @@ from routers.movie import movie_router
 from routers.user import user_route
 from models.movie import Movie as MovieModel
 from models.user import User as UserModel
-
+import uvicorn
+import os
 app = FastAPI()
 app.title = "Mi fast api"
 app.version = "0.0.2"
@@ -40,3 +41,7 @@ def message():
                     </body>
                     </html>
 ''')
+                        
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0",
+                port=int(os.environ.get("PORT", 8000)))
