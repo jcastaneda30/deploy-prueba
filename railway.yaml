@@ -2,4 +2,5 @@ services:
   - name: web
     type: web
     env:
+      PYTHON_VERSION: "3.10.12"
       RAILWAY_START_CMD: uvicorn main:app --host 0.0.0.0 --port $RAILWAY_PORT
